@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/Soaphub/room-layout]
-- Live Site URL: [https://room-layout-nine.vercel.app/]
+- Solution URL: [https://github.com/Soaphub/todo-frontend]
+- Live Site URL: [https://todo-frontend-iota-three.vercel.app/]
 
 ## My process
 
