@@ -1,0 +1,313 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+
+    --bg-img-height: calc(100vh / 2.6);
+    --popUp-width: 37%;
+
+    --spacing-xlg: 5rem;
+    --spacing-lg: 3rem;
+    --spacing-md: 2rem;
+    --spacing-sm: 1.25rem;
+    --spacing-xsm: 1rem;
+
+    --font-size-lg: 3.5rem;
+    --font-size-md: 1.5rem;
+    --font-size-sm: 1.2rem;
+    --font-size-xsm: 1.1rem;
+
+    --mode-icon-size: 3rem;
+
+    --checbox-size: 2rem;
+
+    /* dark mode template */
+    --bg-desk-image-dark: url("/public/images/bg-desktop-dark.jpg");
+    --bg-mob-image-dark: url("/public/images/bg-mobile-dark.jpg");
+    --primary-color-dark : hsl(235, 21%, 11%);
+    --secondary-color-dark : hsl(235, 24%, 19%);
+    --accent-color1-dark : hsl(234, 39%, 85%);
+    --accent-color1-hover-dark : hsl(236, 33%, 92%);
+    --accent-color2-dark: hsl(234, 11%, 52%);
+    --accent-color3-dark: hsl(233, 14%, 35%);
+    --accent-color4-dark: hsl(237, 14%, 26%);
+    
+    --box-shadow-dark: hsl(235, 21%, 5%);
+
+    
+    /* light mode template */
+    --bg-desk-image-ligth: url("/public/images/bg-desktop-light.jpg");
+    --bg-mob-image-ligth: url("/public/images/bg-mobile-light.jpg");
+    --primary-color-ligth : hsl(0, 0%, 98%);
+    --secondary-color-ligth : white;
+    --accent-color1-ligth : hsl(235, 19%, 35%);
+    --accent-color1-hover-ligth : hsl(235, 19%, 35%);
+    --accent-color2-ligth: hsl(236, 9%, 61%);
+    --accent-color3-ligth: hsl(233, 11%, 65%);
+    --accent-color4-ligth: hsl(236, 33%, 92%);
+
+    --box-shadow-ligth: hsl(233, 11%, 84%);
+}
+
+
+/* =========
+     Mode Theme 
+     ==========*/
+@media (prefers-color-scheme: light){
+    :root  
+    {
+        --bg-desk-image: var(--bg-desk-image-ligth);
+        --bg-mob-image: var(--bg-mob--ligth);
+        --primary-color : var(--primary-color-ligth);
+        --secondary-color : var(--secondary-color-ligth);
+        --accent-color1 : var(--accent-color1-ligth);
+        --accent-color1-hover : var(--accent-color1-hover-ligth);
+        --accent-color2: var(--accent-color2-ligth);
+        --accent-color3: var(--accent-color3-ligth);
+        --accent-color4: var(--accent-color4-ligth);
+
+        --box-shadow-ligth: var(--box-shadow-ligth);
+    }
+
+}
+[color-scheme = "light"]{
+    --bg-desk-image: var(--bg-desk-image-ligth);
+    --bg-mob-image: var(--bg-mob--ligth);
+    --primary-color :var(--primary-color-ligth);
+    --secondary-color : var(--secondary-color-ligth);
+    --accent-color1 : var(--accent-color1-ligth);
+    --accent-color1-hover : var(--accent-color1-hover-ligth);
+    --accent-color2: var(--accent-color2-ligth);
+    --accent-color3: var(--accent-color3-ligth);
+    --accent-color4: var(--accent-color4-ligth);
+
+    --box-shadow: var(--box-shadow-ligth);
+}
+@media (prefers-color-scheme: dark){
+    :root{
+        --bg-desk-image: var(--bg-desk-image-dark);
+        --bg-mob-image: var(--bg-mob-image-dark);
+        --primary-color : var(--primary-color-dark);
+        --secondary-color : var(--secondary-color-dark);
+        --accent-color1 : var(--accent-color1-dark);
+        --accent-color1-hover : var(--accent-color1-hover-dark);
+        --accent-color2: var(--accent-color2-dark);
+        --accent-color3: var(--accent-color3-dark);
+        --accent-color4: var(--accent-color4-dark);
+    
+        --box-shadow: var(--box-shadow-dark);
+    }
+} 
+[color-scheme = "dark"]{
+    --bg-desk-image: var(--bg-desk-image-dark);
+    --bg-mob-image: var(--bg-mob-image-dark);
+    --primary-color : var(--primary-color-dark);
+    --secondary-color : var(--secondary-color-dark);
+    --accent-color1 : var(--accent-color1-dark);
+    --accent-color1-hover : var(--accent-color1-hover-dark);
+    --accent-color2: var(--accent-color2-dark);
+    --accent-color3: var(--accent-color3-dark);
+    --accent-color4: var(--accent-color4-dark);
+
+    --box-shadow: var(--box-shadow-dark);
+}
+
+body{
+    background-color: var(--primary-color);
+    background-image: var(--bg-desk-image);
+    background-repeat: no-repeat;
+    background-size: 100% var(--bg-img-height);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.content{
+    width: var(--popUp-width);
+    margin: auto;
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+h1{
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: white;
+}
+
+@media (max-width: 768px){
+    body{
+        background-image: var(--bg-mob-image);
+    }
+}
+
+
+@media (max-width: 575.98px){
+    
+    :root{
+
+        --bg-img-height: calc(100vh / 3.9);
+        --popUp-width: 90%;
+        
+        --spacing-xlg: 3rem;
+        --spacing-lg: 2.25rem;
+        --spacing-md: 1.5rem;
+        --spacing-sm: 1rem;
+        --spacing-xsm: 0.5rem;
+    
+        --font-size-lg: 2.25rem;
+        --font-size-md: 1rem;
+        --font-size-sm: 0.85rem;
+        --font-size-xsm: 0.8rem;
+    
+        --mode-icon-size: 1.75rem;
+
+        --checbox-size: 1.3rem;
+    }
+}
+
+
+@media (min-width: 576px)  and (max-width: 767.98px){
+    
+    :root{
+
+        --bg-img-height: calc(100vh / 3.7);
+        --popUp-width: 70%;
+        
+        --spacing-xlg: 3.75rem;
+        --spacing-lg: 2.5rem;
+        --spacing-md: 1.6rem;
+        --spacing-sm: 1.25rem;
+        --spacing-xsm: 1rem;
+    
+        --font-size-lg: 2.75rem;
+        --font-size-md: 1.15rem;
+        --font-size-sm: 1.1rem;
+        --font-size-xsm: 1rem;
+    
+        --mode-icon-size: 2rem;
+
+        --checbox-size: 1.6rem;
+    }
+ }
+
+@media (min-width: 768px)  and (max-width: 991.98px){
+    
+    :root{
+
+        --bg-img-height: calc(100vh / 3.5);
+        --popUp-width: 60%;
+        
+        --spacing-xlg: 4rem;
+        --spacing-lg: 2.75rem;
+        --spacing-md: 1.7rem;
+        --spacing-sm: 1.3rem;
+        --spacing-xsm: 1.1rem;
+    
+        --font-size-lg: 3rem;
+        --font-size-md: 1.25rem;
+        --font-size-sm: 1.15rem;
+        --font-size-xsm: 1.1rem;
+    
+        --mode-icon-size: 2.15rem;
+
+        --checbox-size: 1.6rem;
+    }
+}
+
+
+@media (min-width: 992px)  and (max-width: 1199.98px){
+    
+    :root{
+
+        --bg-img-height: calc(100vh / 2.6);
+        --popUp-width: 50%;
+
+        --spacing-xlg: 4.15rem;
+        --spacing-lg: 2.1rem;
+        --spacing-md: 1.1rem;
+        --spacing-sm: 0.9rem;
+        --spacing-xsm: 0.75rem;
+    
+        --font-size-lg: 2.25rem;
+        --font-size-md: 1rem;
+        --font-size-sm: 0.85rem;
+        --font-size-xsm: 0.8rem;
+    
+        --mode-icon-size: 2.15rem;
+
+        --checbox-size: 1.25rem;
+    }
+}
+
+
+@media (min-width: 1200px)  and (max-width: 1399.98px){
+    
+    :root{
+
+        --bg-img-height: calc(100vh / 2.6);
+        --popUp-width: 45%;
+
+        --spacing-xlg: 4.25rem;
+        --spacing-lg: 2.15rem;
+        --spacing-md: 1.15rem;
+        --spacing-sm: 0.95rem;
+        --spacing-xsm: 0.8rem;
+    
+        --font-size-lg: 2.5rem;
+        --font-size-md: 1.1rem;
+        --font-size-sm: 0.9rem;
+        --font-size-xsm: 0.85rem;
+    
+        --mode-icon-size: 2.25rem;
+
+        --checbox-size: 1.4rem;
+    }
+}
+
+
+@media (min-width: 1400px)  and (max-width: 1599.98px){
+    
+    :root{
+
+        --bg-img-height: calc(100vh / 2.6);
+        --popUp-width: 40%;
+
+        --spacing-xlg: 4.5rem;
+        --spacing-lg: 2.5rem;
+        --spacing-md: 1.5rem;
+        --spacing-sm: 1.1rem;
+        --spacing-xsm: 0.9rem;
+    
+        --font-size-lg: 3rem;
+        --font-size-md: 1.3rem;
+        --font-size-sm: 1rem;
+        --font-size-xsm: 0.95rem;
+    
+        --mode-icon-size: 2.5rem;
+
+        --checbox-size: 1.6rem;
+    }
+}
+
+@media (min-width: 1600px) and (max-width: 1799.98px){
+
+    :root{
+
+        --bg-img-height: calc(100vh / 2.6);
+        --popUp-width: 40%;
+
+        --spacing-xlg: 4.75rem;
+        --spacing-lg: 2.75rem;
+        --spacing-md: 1.75rem;
+        --spacing-sm: 1.15rem;
+        --spacing-xsm: 0.95rem;
+    
+        --font-size-lg: 3.25rem;
+        --font-size-md: 1.4rem;
+        --font-size-sm: 1.1rem;
+        --font-size-xsm: 1rem;
+    
+        --mode-icon-size: 2.75rem;
+
+        --checbox-size: 1.8rem;
+    }
+}

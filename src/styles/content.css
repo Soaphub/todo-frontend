@@ -1,0 +1,279 @@
+/*========= 
+    Header 
+    ========*/
+
+
+/* Header div */
+.header{
+    margin-bottom: var(--spacing-md);
+}
+
+/* Header title div */
+.header > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Header mode icon */
+.header > div > img{
+    width: var(--mode-icon-size);
+    height: var(--mode-icon-size);
+    cursor: pointer;
+}
+
+/* Header input text field */
+.header form input, 
+.main .container > div,
+.main .last-row,
+.filter-row{
+    width: 100%;
+    font-size: var(--font-size-md);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    background-color: var(--secondary-color);
+    padding: var(--spacing-sm) var(--spacing-sm);
+    border-radius: 0.3rem;
+    color: var(--accent-color1);
+    border: none;
+}
+.header form input:focus{
+    box-shadow: 3px 5px 20px 3px var(--box-shadow);
+    outline: none;
+}
+
+/* ============
+    Main Content 
+    =============*/
+
+
+/*===Main todo list div===*/
+.main{
+    border-radius: 0.5rem;
+}
+
+/* Top left and right box curve */
+.main .container > div:first-child{
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+/* The todo list box  */
+.main .container{
+    padding: 0;
+}
+.main .container > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0;
+    border-bottom: 1px solid var(--accent-color4);
+    cursor:move;
+    animation: div 1s forwards ease-out;
+}
+@keyframes div {
+    0%{
+        opacity: 0.2;
+        transform: rotateX(-90deg);
+    }
+    50%{
+        opacity: 0.6;
+        transform: rotateX(-45deg);
+
+    }
+    100%{
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+.main .container .draggable.draging{
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* hover effect for cross image */
+.main form > div:hover input ~ img{
+    display: block;
+}
+
+/*===Content in todo lists ===*/
+
+/* Removing default checkbox */
+.main input[type="checkbox"]{
+    display: none;
+}
+
+/* Checkbox list lable  */
+.main label{
+    position: relative;
+    margin-left: var(--spacing-xlg);
+    cursor: pointer;
+}
+
+/* Custom checkbox before lable for checked content */
+.main label::before{
+    content: "";
+    background-color: var(--secondary-color);
+    width: var(--checbox-size);
+    height: var(--checbox-size);
+    left: -3.94rem;
+    top: -0.438rem;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+}
+.main input[type="checkbox"]:checked + label::before{
+    background-image: url("/public/icons/icon-check.svg"), linear-gradient(120deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: check 0.8s forwards ease-in;
+}
+@keyframes check {
+    0%{
+        transform: scale(0.8);
+    }
+    50%{
+        transform: scale(1.2);
+        transform: rotateZ(-45deg);
+
+    }
+    100%{
+        transform: scale(1);
+        transform: rotateZ(0);
+    }
+}
+
+/* Custom checkbox after lable for checked and hover content */
+label::after{
+    content: "";
+    position: absolute;
+    background-color: var(--secondary-color);
+    width: calc( var(--checbox-size) + 0.1rem);
+    height: calc( var(--checbox-size) + 0.1rem);
+    left: -4rem;
+    top: -0.5rem;
+    border-radius: 50%;
+    border: 0.1rem solid var(--accent-color4);
+}
+.main input[type="checkbox"]:checked + label::after{
+    display: none;
+}
+.main input[type="checkbox"]:hover + label::after{
+    background-image: linear-gradient(120deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border: none;
+}
+
+/* Stricking out the text for checked content */
+.main input[type="checkbox"]:checked + label{
+    color: var(--accent-color2);
+    text-decoration: line-through;
+}
+
+/* Cross image before hover */
+.main form img{
+    display: none;
+    cursor: pointer;
+    width: calc(var(--mode-icon-size) / 2);
+    height: calc(var(--mode-icon-size) / 2);
+}
+
+/*=== Last div in the main content ===*/
+
+.main .last-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    box-shadow: 5px 20px 30px 10px var(--box-shadow);
+}
+
+/* last row with filter content */
+.main .last-row div{
+    display: flex;
+    justify-content:space-around;
+}
+
+.main .last-row p{
+    margin: 0 var(--spacing-xsm);
+    font-size: var(--font-size-sm);
+    color: var(--accent-color2);
+    cursor: pointer;
+}
+
+.main .last-row div p{
+    font-weight: 700;
+}
+.main .last-row div p:hover, .main .last-row div + p:hover{
+ color: var(--accent-color1-hover);
+}
+/* The active syle for filter tab */
+.main .filter.active{
+    color: hsl(220, 98%, 61%);
+}
+
+/*======
+    Footer
+    ========*/
+
+.footer p{
+    margin-top: var(--spacing-lg);
+    font-size: var(--font-size-xsm);
+    color: var(--accent-color3);
+    text-align: center;
+}
+
+@media (max-width: 992px){
+
+    /* Cross image before hover */
+    .main form img{
+        display: block;
+    }
+
+    /* Custom checkbox after lable for checked and hover content */
+    .main input[type="checkbox"]:hover + label::after{
+        background-image: none;
+        border: 0.1rem solid var(--accent-color4);
+    }
+
+    /* last row*/
+    .main .last-row div + p:hover{
+        color: var(--accent-color2);
+    }
+    .filter-row{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: var(--spacing-md);
+        box-shadow: 5px 20px 30px 10px var(--box-shadow);
+    }
+    .filter-row p{
+        margin: 0;
+        color: var(--accent-color2);
+        cursor: pointer;
+        font-weight: 700;
+    }/* The active syle for filter tab */
+    .filter.active{
+        color: hsl(220, 98%, 61%);
+    }
+}
+
+
+
+@media (max-width: 575.98px){
+
+    /* Custom checkbox before lable for checked content */
+    .main label::before{
+        left: -2.94rem;
+        top: -0.35rem;
+    }
+
+    /* Custom checkbox after lable for checked and hover content */
+    label::after{
+        left: -3rem;
+        top: -0.5rem;
+    }
+}
+
+
+
