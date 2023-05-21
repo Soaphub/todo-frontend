@@ -8,6 +8,7 @@ const Header = () => {
 
     const [dark, setDark] = useState();
 
+    //To load theme from local storage or from window
     useEffect(() => {
         let theme
         theme= localStorage.getItem("theme-value-todo");
@@ -20,12 +21,12 @@ const Header = () => {
             document.addEventListener("DOMContentLoaded", ()=> loadTheme(theme));
         }
     },[]);
-
+    // To get current window theme or mode
     const getCurrentTheme=()=>{
         const theme= window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         return theme
     }
-
+    // Applying the colorscheme in the root file
     const loadTheme=(themes)=>{
         const root= document.querySelector(":root");
         root.setAttribute("color-scheme", themes);
@@ -36,12 +37,13 @@ const Header = () => {
         }
         localStorage.setItem("theme-value-todo", themes);
     }
-
+    
+    // To change the icon 
     const handleClick=()=>{
         setDark(prev => !prev);
         changeColor();
     }
-
+    // TO change the theme to dark mode
     const changeColor=()=>{
         let themes
         if(dark===true){

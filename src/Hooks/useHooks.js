@@ -26,6 +26,7 @@ const UseHooks = () => {
         setToDo(e.target.value);
     }
 
+    //To create new todo List
     const createData=(e)=>{
         if( e.key === "Enter"){
             e.preventDefault();
@@ -42,10 +43,12 @@ const UseHooks = () => {
         dispatch(checkedList({id, checked}));
     }
 
+    // TO clear completed todo or delete one todo
     const ClearData=({clearData, count})=>{
         dispatch(clear({clearData, count}));
     }
 
+    
     // Handle dragging and reordering the todo
     const dragReorder=()=>{
         const draggable= document.querySelectorAll(".draggable");
@@ -59,7 +62,7 @@ const UseHooks = () => {
             });
         } );
     }
-
+    // To constrain draging inside a container and placing element
     const handleDragContainer=(e)=>{
         e.preventDefault();
         const container = document.querySelector(".container");
@@ -74,7 +77,7 @@ const UseHooks = () => {
             container.appendChild(draggable);
           }
     }
-
+    // TO get the elemet above which our dragged element placed
     const getAfterElement =(y)=>{
         const NotDragingElemnt= [...document.querySelectorAll(".draggable:not(.dragging)")];
         return NotDragingElemnt.reduce((closest, child)=>{

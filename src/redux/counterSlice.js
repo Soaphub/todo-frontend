@@ -98,6 +98,7 @@ export const counterSlice = createSlice({
 			// Geting data from local Storage
 			const response = JSON.parse(localStorage.getItem("todo-list"));
 
+			// Updating the data and count
 			const clear= action.payload.clearData;
 			response.counts= action.payload.count;
 			state.counts = response.counts;

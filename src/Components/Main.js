@@ -25,9 +25,12 @@ const Main = () => {
         }
     }
 
-    // Function to filter todo list 
 
-    // To have all elements
+    // ============================
+    // Function to filter todo list
+    // ============================ 
+
+    // -----------To have all elements--------------
     const handleFilterAll=()=>{
         const activeList= document.querySelector(".filter.active");
         const all= document.getElementById("all");
@@ -36,53 +39,68 @@ const Main = () => {
         getData();
     }
 
-    // Filter Completed and active lists
+    //-------Filter Completed and active lists ------------
     const handleFilter=(e)=>{
-        const activeList= document.querySelector(".filter.active");
-        const id=e.target.id
         const response = JSON.parse(localStorage.getItem("todo-list"));
         const noFilter= response.data;
+        const id=e.target.id
+
+        //Removing the active styles for current tab
+        const activeList= document.querySelector(".filter.active"); 
         activeList.classList.remove("active");
+
+        //Identifying the clecked tab
         if( id === "active"){
             handleFilterActive(noFilter);
         }else {
             handleFilterComplete(noFilter);
         }
     }
+
+    // -------To filter active list--------
     const handleFilterActive=(noFilter)=>{
         const active= document.getElementById("active");
+        active.classList.add("active");
+        //Filtering the data
         const filterData= noFilter.filter(data => data.checked===false );
         setData(filterData);
-        active.classList.add("active");
     }
+
+    //----------To filter completed list-----------
     const handleFilterComplete=(noFilter)=>{
         const active= document.getElementById("completed");
+        active.classList.add("active");
+
+        //Filtering the data
         const filterData= noFilter.filter(data => data.checked===true);
         setData(filterData);
-        active.classList.add("active");
     }
 
-    // Function to check checkbox and save it in local storage
-    const handleCheckBox=(e)=>{
-        CheckBox(e);
-    }
-
+    
+    //  ================================================
+    //   To clear the completed list or to delete a todo
+    //   ===============================================
 
     const handleClear=(e)=>{
         const id=e.target.id
         const response = JSON.parse(localStorage.getItem("todo-list"));
         const noFilter= response.data;
+
+        //Removing the active styles for current tab and adding to all
         const activeList= document.querySelector(".filter.active");
         const all= document.getElementById("all");
         activeList.classList.remove("active");
         all.classList.add("active");
+
+        //Identifying the delete option
         if( id === "clear-complete"){
             handleComplete(noFilter);
         }else {
             handleCross({noFilter, id});
         }
     }
-    // Function to clear completed todo and save it in local storage
+
+    //---------Function to clear completed todo---------
     const handleComplete=(noFilter)=>{
         const clearData= noFilter.filter(data => data.checked!==true);
         const count=  clearData.length;
@@ -91,12 +109,14 @@ const Main = () => {
         ClearData({clearData, count});
     }
 
-    // Function to clear completed todo and save it in local storage
+    //----------Function to clear a todo---------------
     const handleCross=({noFilter, id})=>{
         const Id= id;
         const filterData= noFilter.filter(data => data.checked === true);
         const clearData= noFilter.filter(data => data.id !== Number(Id));
         let count;
+
+        //Checking if the removed data is checked or non checked
         if (filterData.length !== 0) {
             for (let index = 0; index < noFilter.length; index++) {
                 let set= 0;
@@ -117,15 +137,23 @@ const Main = () => {
             count = clearData.length;
             setCount(count);
         }
+
         setData(clearData);
         ClearData({clearData, count});
     }
 
-    // Handle dragging and reoreing the todo
+
+    // Function to check checkbox and save it in local storage
+    const handleCheckBox=(e)=>{
+        CheckBox(e);
+    }
+    
+    //  Handle dragging todo styles
     const handleDrag=()=>{
         dragReorder();
     }
 
+    //  Handle dragging and reoreing the todo
     const handleDragOver=(e)=>{
         handleDragContainer(e);
     }
@@ -183,5 +211,3 @@ export default Main;
 
 
 
-
-// Work on handle cross to delete 
