@@ -58,7 +58,7 @@
     :root  
     {
         --bg-desk-image: var(--bg-desk-image-ligth);
-        --bg-mob-image: var(--bg-mob--ligth);
+        --bg-mob-image: var(--bg-mob-image-ligth);
         --primary-color : var(--primary-color-ligth);
         --secondary-color : var(--secondary-color-ligth);
         --accent-color1 : var(--accent-color1-ligth);
@@ -73,7 +73,7 @@
 }
 [color-scheme = "light"]{
     --bg-desk-image: var(--bg-desk-image-ligth);
-    --bg-mob-image: var(--bg-mob--ligth);
+    --bg-mob-image: var(--bg-mob-image-ligth);
     --primary-color :var(--primary-color-ligth);
     --secondary-color : var(--secondary-color-ligth);
     --accent-color1 : var(--accent-color1-ligth);
