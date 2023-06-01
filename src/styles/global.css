@@ -117,14 +117,15 @@ body{
     background-color: var(--primary-color);
     background-image: var(--bg-desk-image);
     background-repeat: no-repeat;
-    background-size: 100% var(--bg-img-height);
+    background-size: contain;
+    background-position: top;
     font-family: 'Josefin Sans', sans-serif;
 }
 
 .content{
     width: var(--popUp-width);
     margin: auto;
-    padding: var(--spacing-lg) 0 var(--spacing-md);
+    padding: var(--spacing-xlg) 0 var(--spacing-md);
 }
 
 h1{
@@ -133,9 +134,16 @@ h1{
     color: white;
 }
 
-@media (max-width: 768px){
+
+@media (max-width: 575.98px){
     body{
         background-image: var(--bg-mob-image);
+    }
+
+    .content{
+        margin: 0;
+        padding-left: var(--spacing-xsm);
+        padding-right: var(--spacing-xsm);
     }
 }
 
@@ -145,7 +153,7 @@ h1{
     :root{
 
         --bg-img-height: calc(100vh / 3.9);
-        --popUp-width: 90%;
+        --popUp-width: 100%;
         
         --spacing-xlg: 3rem;
         --spacing-lg: 2.25rem;
@@ -170,7 +178,7 @@ h1{
     :root{
 
         --bg-img-height: calc(100vh / 3.7);
-        --popUp-width: 70%;
+        --popUp-width: 75%;
         
         --spacing-xlg: 3.75rem;
         --spacing-lg: 2.5rem;
